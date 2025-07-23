@@ -21,10 +21,10 @@ public class ProductServiceTest {
         ProductModel product = productService.extractProduct(document);
 
         assertNotNull(product);
-        assertEquals("Produto Teste", product.getTitle().text());
-        assertEquals("R$ 99,99", product.getPrice().text());
-        assertEquals("Descrição do produto.", product.getDescription().text());
-        assertEquals("imagem.jpg", product.getImage().attr("src"));
+        assertEquals("Produto Teste", product.getTitle());
+        assertEquals("R$ 99,99", product.getPrice());
+        assertEquals("Descrição do produto.", product.getDescription());
+        assertEquals("imagem.jpg", product.getImageUrl());
     }
 
     @Test
@@ -34,10 +34,6 @@ public class ProductServiceTest {
         ProductModel product = productService.extractProduct(document);
 
         assertNull(product);
-        assertNull(product.getTitle());
-        assertNull(product.getPrice());
-        assertNull(product.getDescription());
-        assertNull(product.getImage());
     }
 
     @Test

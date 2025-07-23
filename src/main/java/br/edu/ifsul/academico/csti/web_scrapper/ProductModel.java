@@ -11,18 +11,18 @@ import org.jsoup.nodes.Element;
 @Getter
 @Setter
 public class ProductModel {
-    private Element title;
-    private Element price;
-    private Element description;
-    private Element image;
+    private String title;
+    private String price;
+    private String description;
+    private String imageUrl;
 
     @Override
     public String toString() {
         return "\n+---------------------- Produto ----------------------+" +
-                "\nTitulo: " + title.text() + '\'' +
-                "\nPreço do produto: " + price.text() + '\'' +
-                "\n+------------------------------------------------------ Descrição ------------------------------------------------------+\n" + description.text().replaceAll("\\.\\s*", ".\n") + '\'' +
+                "\nTitulo: " + title +
+                "\nPreço do produto: " + price +
+                "\n+------------------------------------------------------ Descrição ------------------------------------------------------+\n" + description.replaceAll("\\.\\s*", ".\n") +
                 "\n+------------------------------------------------------------------------------------------------------------+" +
-                "\nLink da imagem do produto: " + image.attr("src") + '\'';
+                "\nLink da imagem do produto: " + imageUrl;
     }
 }
