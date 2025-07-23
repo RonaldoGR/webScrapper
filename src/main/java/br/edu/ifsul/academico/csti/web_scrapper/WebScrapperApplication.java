@@ -7,9 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WebScrapperApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(WebScrapperApplication.class, args);
-        ProductController.main(args);
     }
 
 }
