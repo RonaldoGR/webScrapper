@@ -3,26 +3,24 @@ package br.edu.ifsul.academico.csti.web_scrapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 public class ProductController {
-    public static void main(String[] args) {
-        String url = "https://www.netshoes.com.br/p/bicicleta-aro-26-colli-gps-freio-vbrake-aco-carbono-21-marchas-preto-I78-0282-006";
 
+    @Autowired
+    private ProductService productService;
+
+   @GetMapping("/product")
+    public ProductModel getProduct(@RequestParam String url) {
         try {
-
-            Document document = Jsoup.connect(url).get();
-            Element title = document.selectFirst("h1.product-name");
-            Element price = document.selectFirst("div.price-box__saleInCents");
-            Element description = document.selectFirst("div.feature__main-content");
-            Element img = document.selectFirst("img.carousel-item-figure__image");
-
-            ProductModel product = new ProductModel(title, price, description, img);
-
-            System.out.println("\n\n");
-            System.out.println(product);
-
+            return productService.extractProductFromUrl(url);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("Erro ao extrair dados da URL: " + e);
+            return null;
         }
-    }
+   }
 }
