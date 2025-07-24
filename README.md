@@ -39,12 +39,13 @@ cd web-scrapper
 docker build -t web-scrapper .
 ```
 
-4. **Run the container:**
+3. **Run the container:**
 ```
 docker run -p 8080:8080 web-scrapper
 ```
 
 4.**Call the API endpoint:**
+
 Open in your browser:
 ```
 http://localhost:8080/product?url=https://www.netshoes.com.br/p/bicicleta-aro-26-colli-gps-freio-vbrake-aco-carbono-21-marchas-preto-I78-0282-006
