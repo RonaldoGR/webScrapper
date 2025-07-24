@@ -44,7 +44,7 @@ docker build -t web-scrapper .
 docker run -p 8080:8080 web-scrapper
 ```
 
-4.**Call the API endpoint:**
+4. **Call the API endpoint:**
 
 Open in your browser:
 ```
